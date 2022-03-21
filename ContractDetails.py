@@ -23,7 +23,7 @@ API_ENDPOINT = url_eth+'?module=contract&action=getabi&address='+str(contract_ad
 
 r = requests.get(url = API_ENDPOINT)
 response = r.json()
-#print (response)
+print (response)
 abi=json.loads(response['result'])
 
 #- Call contract
@@ -57,4 +57,8 @@ print('Token wallet Balance:',TWalletbalance)
 CirculatingSupply = totalSupply - burnbalance - AirdropWalletbalance #- LPWalletbalance - RWalletbalance - TWalletbalance
 print('Circulating Supply:',"{:,}".format(CirculatingSupply))
 
-Volume = contract.functions.totalV
+rewardToken = contract.functions.rewardToken().call()
+
+print (rewardToken)
+print (contract.functions.autoBuybackAccumulator().call())
+print (contract.functions.setIsDividendExempt().call())
