@@ -61,4 +61,11 @@ rewardToken = contract.functions.rewardToken().call()
 
 print (rewardToken)
 print (contract.functions.autoBuybackAccumulator().call())
-print (contract.functions.setIsDividendExempt().call())
+print (contract.functions.liquidityFee().call())
+print (contract.functions.buybackFee().call())
+print (contract.functions.reflectionFee().call())
+print (contract.functions.marketingFee().call())
+print (contract.functions.feeDenominator().call())
+
+result = web3.eth.get_transaction('0xc5e6539ae242209fee009069d7563ce92727c5ba5f096e758434cc0a03b336fa')
+print(result)
